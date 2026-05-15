@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gustav Kihl — CV Presentation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --maersk-blue: #00243D;
+    --maersk-light: #42B0D5;
+    --maersk-accent: #0073AB;
+    --maersk-sky: #B3E0F2;
+    --white: #FFFFFF;
+    --gray-50: #F8FAFC;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --blue-1: #7EC8E3;
+    --blue-2: #42B0D5;
+    --blue-3: #0073AB;
+    --blue-total: #00243D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-800);
+    line-height: 1.6;
+  }
+
+  /* ─── FRONT PAGE ─── */
+  .front-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--maersk-blue) 0%, #003A5D 50%, var(--maersk-accent) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .front-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle, rgba(66,176,213,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .front-page::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -20%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(0,115,171,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.25);
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .hero-name {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--maersk-sky);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-target {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 3rem;
+  }
+
+  .tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tile {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .tile:hover {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  }
+
+  .tile-icon { font-size: 2.4rem; margin-bottom: 0.8rem; display: block; }
+  .tile-label { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .tile-hint { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.4rem; }
+
+  /* ─── SECTIONS ─── */
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--maersk-accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--maersk-blue);
+    letter-spacing: -0.01em;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--maersk-accent);
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--maersk-blue); }
+
+  /* ─── PROFILE SECTION ─── */
+  .profile-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 0;
+  }
+
+  .profile-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--blue-1), var(--blue-2), var(--blue-3), var(--blue-total));
+    border-radius: 4px 0 0 4px;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile-header-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--maersk-accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .profile-header-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--maersk-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .profile-text {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.75;
+  }
+
+  /* ─── EXPERIENCE LAYOUT ─── */
+  .experience-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 960px) {
+    .experience-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ─── VISUALS COLUMN ─── */
+  .visuals-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  /* ─── CHART PANEL ─── */
+  .chart-panel {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1.8rem;
+  }
+
+  .panel-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--maersk-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3rem;
+    text-align: center;
+  }
+
+  .panel-subtitle {
+    font-size: 0.74rem;
+    color: var(--gray-400);
+    text-align: center;
+    margin-bottom: 1.4rem;
+  }
+
+  .chart-area {
+    position: relative;
+    height: 240px;
+    display: flex;
+    padding-left: 32px;
+  }
+
+  .y-axis {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+
+  .y-label {
+    font-size: 0.65rem;
+    color: var(--gray-400);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .chart-grid {
+    position: absolute;
+    left: 32px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  .grid-line {
+    width: 100%;
+    height: 1px;
+    background: var(--gray-200);
+  }
+
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex: 1;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 76px;
+  }
+
+  .bar-val {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--maersk-blue);
+    margin-bottom: 4px;
+  }
+
+  .bar {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    transition: opacity 0.2s;
+  }
+
+  .bar:hover { opacity: 0.85; }
+
+  .bar-lbl {
+    font-size: 0.64rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .bar-kk   { background: var(--blue-1); }
+  .bar-mof  { background: var(--blue-2); }
+  .bar-impl { background: var(--blue-3); }
+  .bar-tot  {
+    background: var(--blue-total);
+    box-shadow: 0 2px 12px rgba(0,36,61,0.25);
+  }
+
+  .bar-col.total-col {
+    border-left: 1px dashed var(--gray-200);
+    padding-left: 12px;
+    margin-left: 6px;
+  }
+
+  .chart-total-banner {
+    text-align: center;
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .chart-total-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--maersk-blue);
+    line-height: 1;
+  }
+
+  .chart-total-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── COMPETENCY TABLE ─── */
+  .competency-panel {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1.8rem;
+  }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .comp-table tr:first-child td:first-child { border-radius: 8px 0 0 0; }
+  .comp-table tr:first-child td:last-child  { border-radius: 0 8px 0 0; }
+  .comp-table tr:last-child td:first-child  { border-radius: 0 0 0 8px; }
+  .comp-table tr:last-child td:last-child   { border-radius: 0 0 8px 0; }
+
+  .comp-table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .comp-table tr:last-child td { border-bottom: none; }
+
+  .comp-area {
+    font-weight: 700;
+    color: var(--white);
+    white-space: nowrap;
+    width: 1%;
+    border-right: none;
+  }
+
+  .comp-area-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .comp-area-inner.blue-1 { background: var(--blue-1); color: var(--maersk-blue); }
+  .comp-area-inner.blue-2 { background: var(--blue-2); color: var(--white); }
+  .comp-area-inner.blue-3 { background: var(--blue-3); color: var(--white); }
+  .comp-area-inner.blue-4 { background: var(--blue-total); color: var(--white); }
+
+  .comp-detail {
+    color: var(--gray-600);
+    font-weight: 400;
+  }
+
+  /* ─── TIMELINE CARDS ─── */
+  .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    transition: box-shadow 0.25s;
+  }
+
+  .card:hover { box-shadow: 0 4px 20px rgba(0,36,61,0.08); }
+
+  .card-date {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--maersk-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.35rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--maersk-blue);
+    margin-bottom: 0.15rem;
+  }
+
+  .card-org {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 0.8rem;
+  }
+
+  .card ul { list-style: none; padding: 0; }
+
+  .card li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.94rem;
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+    line-height: 1.55;
+  }
+
+  .card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    background: var(--maersk-light);
+    border-radius: 50%;
+  }
+
+  .card .courses-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--maersk-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .card .thesis {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .card .thesis-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--maersk-accent);
+    margin-bottom: 0.2rem;
+  }
+
+  .card .thesis-text {
+    font-size: 0.92rem;
+    color: var(--gray-600);
+    font-style: italic;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gray-200);
+    margin: 4rem 0 0;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--gray-400);
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- FRONT PAGE                                  -->
+<!-- ════════════════════════════════════════════ -->
+<div class="front-page" id="top">
+  <div class="hero-content">
+    <img class="avatar"
+      src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:8c41ea62-5837-4b66-bc10-5436ee14877e/5799fbc7-254a-45f0-9deb-687a89592c5c/128"
+      alt="Gustav Kihl" />
+    <h1 class="hero-name">Gustav Kihl</h1>
+    <p class="hero-tagline">People Analytics & Data Professional</p>
+    <p class="hero-target">Application — People Analytics Partner, Maersk</p>
+
+    <div class="tiles-grid">
+      <a class="tile" href="#experience">
+        <span class="tile-icon">💼</span>
+        <span class="tile-label">Experience</span>
+        <span class="tile-hint">4 roles · 5+ years in People Analytics</span>
+      </a>
+      <a class="tile" href="#education">
+        <span class="tile-icon">🎓</span>
+        <span class="tile-label">Education</span>
+        <span class="tile-hint">Cand.Merc.HRM · CBS & SDU</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PROFILE                                     -->
+<!-- ════════════════════════════════════════════ -->
+<div class="profile-section">
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="profile-header-icon">✦</div>
+      <div class="profile-header-title">Profile</div>
+    </div>
+    <p class="profile-text">
+      People Analytics professional with experience owning end-to-end analytics delivery across HR, recruitment, workforce, and organisational topics. Skilled at partnering with senior stakeholders to translate business questions into clear analytical scopes, actionable insights, and decision-ready reporting. Hands-on experience with Power BI, SQL, Excel, and Copilot, combined with strong statistical judgement, stakeholder management, and the ability to communicate complex findings clearly to support data-driven decisions.
+    </p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EXPERIENCE                                  -->
+<!-- ════════════════════════════════════════════ -->
+<section id="experience">
+  <a href="#top" class="back-link">← Back to overview</a>
+
+  <div class="section-header">
+    <div class="section-icon">💼</div>
+    <h2 class="section-title">Experience</h2>
+  </div>
+
+  <div class="experience-layout">
+
+    <!-- LEFT: Timeline cards -->
+    <div class="timeline">
+
+      <div class="card">
+        <div class="card-date">May 2023 — Present</div>
+        <div class="card-title">People Analyst</div>
+        <div class="card-org">Implement Consulting Group · Copenhagen</div>
+        <ul>
+          <li>Own end-to-end people analytics delivery across HR, recruitment, workforce, performance, and organisational topics, from stakeholder problem framing to insight delivery</li>
+          <li>Consult and spar closely with HR, Talent Acquisition, and management to translate business questions into clear analytical scopes, KPIs, and decision-ready deliverables</li>
+          <li>Lead and develop the people analytics area through strong business partnering, stakeholder management, and close collaboration with internal developer/data teams</li>
+          <li>Build strong relationships across the organisation by delivering high-quality insights, involving relevant stakeholders, and maintaining focus on the most important business issues</li>
+          <li>Develop dashboards, visualisations, and analytical material using Power BI, SQL, Excel, and Copilot, applying statistical analysis to identify trends, risks, drivers, and business implications</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-date">January 2022 — April 2023</div>
+        <div class="card-title">People Analyst — Fuldmægtig</div>
+        <div class="card-org">The Ministry of Finance · Copenhagen</div>
+        <ul>
+          <li>Responsible for analyzing workforce data across multiple stages of the employee lifecycle</li>
+          <li>Performed descriptive and diagnostic analyses to identify trends, risks, and potential impacts aligned with internal standards and public sector directives</li>
+          <li>Prepared analytical material and visualisations for senior stakeholders and decision forums</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-date">May 2021 — December 2021</div>
+        <div class="card-title">HR Consultant</div>
+        <div class="card-org">Københavns Kommune · Copenhagen</div>
+        <ul>
+          <li>Supported Københavns Kommune in becoming more data-driven by extracting, analysing, and communicating people data</li>
+          <li>Translated people data into clear insights and visualisations to support decision-making by HR and management stakeholders</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-date">March 2020 — May 2021</div>
+        <div class="card-title">HR Student Assistant</div>
+        <div class="card-org">Falck Denmark A/S · Copenhagen</div>
+        <ul>
+          <li>Gained foundational experience working with people data and HR workflows</li>
+          <li>Assisted with data extraction, basic analysis, and preparation of people-related information to support day-to-day HR activities</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Visuals column -->
+    <div class="visuals-column">
+
+      <!-- Chart -->
+      <div class="chart-panel">
+        <div class="panel-title">People Analytics Experience</div>
+        <div class="panel-subtitle">Years by organisation</div>
+
+        <div class="chart-area">
+          <div class="y-axis">
+            <div class="y-label">0</div>
+            <div class="y-label">1</div>
+            <div class="y-label">2</div>
+            <div class="y-label">3</div>
+            <div class="y-label">4</div>
+            <div class="y-label">5</div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+          </div>
+
+          <div class="bars">
+            <div class="bar-col">
+              <div class="bar-val">0.5</div>
+              <div class="bar bar-kk" style="height: 24px;"></div>
+              <div class="bar-lbl">Københavns Kommune</div>
+            </div>
+
+            <div class="bar-col">
+              <div class="bar-val">1.5</div>
+              <div class="bar bar-mof" style="height: 72px;"></div>
+              <div class="bar-lbl">Ministry of Finance</div>
+            </div>
+
+            <div class="bar-col">
+              <div class="bar-val">3.0</div>
+              <div class="bar bar-impl" style="height: 144px;"></div>
+              <div class="bar-lbl">Implement Consulting</div>
+            </div>
+
+            <div class="bar-col total-col">
+              <div class="bar-val" style="font-size:0.85rem;">5.0+</div>
+              <div class="bar bar-tot" style="height: 240px;"></div>
+              <div class="bar-lbl" style="font-weight:700;">Total</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-total-banner">
+          <div class="chart-total-number">5+</div>
+          <div class="chart-total-label">Years in People Analytics</div>
+        </div>
+      </div>
+
+      <!-- Competency Table -->
+      <div class="competency-panel">
+        <div class="panel-title">Core Competencies</div>
+        <div class="panel-subtitle">Key areas of expertise</div>
+
+        <table class="comp-table">
+          <tr>
+            <td class="comp-area"><span class="comp-area-inner blue-1">🤝 Partnering</span></td>
+            <td class="comp-detail">Stakeholder management, problem framing, senior decision support, and workshop facilitation</td>
+          </tr>
+          <tr>
+            <td class="comp-area"><span class="comp-area-inner blue-2">📊 Analytics</span></td>
+            <td class="comp-detail">Descriptive, predictive, diagnostic, and prescriptive analysis</td>
+          </tr>
+          <tr>
+            <td class="comp-area"><span class="comp-area-inner blue-3">📋 Reporting</span></td>
+            <td class="comp-detail">HR, recruitment, DEI, compensation, performance, on/offboarding, engagement, and L&D</td>
+          </tr>
+          <tr>
+            <td class="comp-area"><span class="comp-area-inner blue-4">🛠 Tools</span></td>
+            <td class="comp-detail">Power BI, SQL, Excel, and Copilot</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+  <hr class="divider" />
+</section>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EDUCATION                                   -->
+<!-- ════════════════════════════════════════════ -->
+<section id="education">
+  <a href="#top" class="back-link">← Back to overview</a>
+
+  <div class="section-header">
+    <div class="section-icon">🎓</div>
+    <h2 class="section-title">Education</h2>
+  </div>
+
+  <div class="timeline">
+
+    <div class="card">
+      <div class="card-date">September 2019 — July 2021</div>
+      <div class="card-title">Cand.Merc.HRM (M.Sc.)</div>
+      <div class="card-org">Copenhagen Business School · Copenhagen</div>
+      <div class="courses-label">Relevant Courses</div>
+      <ul>
+        <li>People Analytics, Data Driven Decision Making, Big Social Data</li>
+      </ul>
+      <div class="thesis">
+        <div class="thesis-label">Master Thesis</div>
+        <div class="thesis-text">Quantitative study on interrelational synergies, individual factors and team performance</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-date">September 2016 — June 2019</div>
+      <div class="card-title">HA (Sport- & Eventmanagement) (B.Sc.)</div>
+      <div class="card-org">Syddansk Universitet (SDU) · Slagelse</div>
+      <div class="courses-label">Relevant Courses</div>
+      <ul>
+        <li>Finance, HRM, Organisational Theory, Statistics</li>
+      </ul>
+    </div>
+
+  </div>
+  <hr class="divider" />
+</section>
+
+<div class="footer">
+  Gustav Kihl · gustavlkihl@gmail.com · +45 40 16 46 37 · linkedin.dk/in/gustav-kihl
+</div>
+
+</body>
+</html>
